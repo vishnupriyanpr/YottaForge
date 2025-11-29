@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yotta Forge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">YOTTA <span class="text-red">FORGE</span></div>
+            <nav class="nav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#builds" class="nav-link">Builds</a>
+                <a href="#contact" class="nav-btn">Start Project</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: Landing / Hero (Massive Text) -->
+        <section class="hero-section">
+            <div class="hero-container">
+                <h1 class="hero-title">
+                    <div class="line">YOTTA</div>
+                    <div class="line text-red">FORGE</div>
+                </h1>
+                <div class="hero-footer">
+                    <span>EST. 2024</span>
+                    <span>SCROLL TO EXPLORE</span>
+                    <span>PRECISION ENGINEERED</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee Divider -->
+        <div class="marquee-section">
+            <div class="marquee-track">
+                <span>ULTIMATE PERFORMANCE • LIQUID COOLING • OVERCLOCKING • BESPOKE HARDWARE • </span>
+                <span>ULTIMATE PERFORMANCE • LIQUID COOLING • OVERCLOCKING • BESPOKE HARDWARE • </span>
+            </div>
+        </div>
+
+        <!-- Section 2: "Home" / Intro (Split Layout with 3D) -->
+        <section id="home" class="split-section">
+            <div class="split-content">
+                <h2 class="section-heading">ENGINEERING<br><span class="text-red">PERFECTION</span></h2>
+                <p class="section-text">
+                    We don't just assemble components. We forge the ultimate computing machines.
+                    Experience the pinnacle of gaming and workstation performance with our custom-built rigs.
+                </p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-num">5.8<small>GHz</small></span>
+                        <span class="stat-label">Overclocked</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">4090</span>
+                        <span class="stat-label">RTX Series</span>
+                    </div>
+                </div>
+                <a href="#builds" class="btn-arrow">Explore Builds <span class="arrow">→</span></a>
+            </div>
+            <div class="split-visual">
+                <!-- 3D Model Container -->
+                <div id="pc-container" class="canvas-container"></div>
+            </div>
+        </section>
+
+        <!-- Section 3: Services Grid -->
+        <section id="services" class="grid-section">
+            <div class="grid-header">
+                <h3>OUR SERVICES</h3>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="card-header">01</div>
+                    <h4>Custom Loops</h4>
+                    <p>Hardline tubing and premium fittings for unmatched thermal performance.</p>
+                </div>
+                <div class="service-card">
+                    <div class="card-header">02</div>
+                    <h4>Overclocking</h4>
+                    <p>Professional CPU and GPU tuning to extract maximum potential.</p>
+                </div>
+                <div class="service-card">
+                    <div class="card-header">03</div>
+                    <h4>Consulting</h4>
+                    <p>Expert hardware selection tailored to your specific workflow.</p>
+                </div>
+                <div class="service-card">
+                    <div class="card-header">04</div>
+                    <h4>Maintenance</h4>
+                    <p>Comprehensive cleaning and loop flushing services.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3.5: Our Process (NEW) -->
+        <section class="process-section">
+            <div class="section-header-center">
+                <h2 class="section-heading">THE <span class="text-outline">PROCESS</span></h2>
+                <p class="section-subtitle">From concept to reality, we handle every detail.</p>
+            </div>
+            <div class="process-steps">
+                <div class="step-item">
+                    <div class="step-number">01</div>
+                    <h3>Consultation</h3>
+                    <p>We discuss your needs, budget, and aesthetic preferences to design the perfect spec.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">02</div>
+                    <h3>Assembly</h3>
+                    <p>Precision building with meticulous cable management and loop construction.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">03</div>
+                    <h3>Testing</h3>
+                    <p>24-hour stress testing and thermal analysis to ensure absolute stability.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">04</div>
+                    <h3>Delivery</h3>
+                    <p>Secure packaging and white-glove delivery to your doorstep.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Builds Gallery (NEW) -->
+        <section id="builds" class="gallery-section">
+            <div class="section-header-center">
+                <h2 class="section-heading">SIGNATURE <span class="text-outline">BUILDS</span></h2>
+                <p class="section-subtitle">A showcase of our finest engineering achievements.</p>
+            </div>
+            <div class="gallery-grid">
+                <!-- Placeholder items - in a real app these would be images -->
+                <div class="gallery-item">
+                    <div class="gallery-content">
+                        <h3>PROJECT: NEBULA</h3>
+                        <p>Dual Loop / RTX 4090 / i9-14900KS</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-content">
+                        <h3>PROJECT: OBSIDIAN</h3>
+                        <p>Stealth Black / Workstation / Threadripper</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-content">
+                        <h3>PROJECT: GLACIER</h3>
+                        <p>White Build / Distro Plate / O11 Dynamic</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4.5: Testimonials (NEW) -->
+        <section class="testimonials-section">
+            <div class="section-header-center">
+                <h2 class="section-heading">CLIENT <span class="text-red">STORIES</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="quote">"The attention to detail is insane. My temperatures dropped by 20°C and it looks
+                        like a piece of art."</p>
+                    <div class="author">
+                        <span class="name">Alex Chen</span>
+                        <span class="role">Pro Streamer</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Yotta Forge built a workstation that handles my 8K rendering workflow without
+                        breaking a sweat."</p>
+                    <div class="author">
+                        <span class="name">Sarah Jenkins</span>
+                        <span class="role">3D Artist</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="quote">"Best investment for my simulation rig. The custom loop is whisper quiet even under
+                        full load."</p>
+                    <div class="author">
+                        <span class="name">Mike Ross</span>
+                        <span class="role">Sim Racer</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Contact Form (NEW) -->
+        <section id="contact" class="contact-section">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2 class="section-heading">START YOUR <br><span class="text-red">JOURNEY</span></h2>
+                    <p>Ready to build your dream machine? Tell us about your requirements.</p>
+                    <ul class="contact-list">
+                        <li><span>EMAIL</span> forgeyotta@gmail.com</li>
+                        <li><span>PHONE</span> +91 8608633110</li>
+                        <li><span>LOC</span> M-247 Kootapalli colony Tiruchengode, Namakkal, 637214</li>
+                    </ul>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Budget Range</label>
+                            <select>
+                                <option>$2,000 - $3,000</option>
+                                <option>$3,000 - $5,000</option>
+                                <option>$5,000+</option>
+                                <option>Unlimited</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="4" placeholder="Tell us about your needs..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">INITIATE SEQUENCE</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h5>YOTTA FORGE</h5>
+                <p class="footer-tagline">Forging the future of high-performance computing.</p>
+            </div>
+            <div class="footer-col">
+                <a href="#">Instagram</a>
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+                <a href="#">YouTube</a>
+            </div>
+            <div class="footer-col">
+                <p>&copy; 2024 Yotta Forge Systems.</p>
+                <p class="legal">Privacy Policy • Terms</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Three.js Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script src="js/script.js"></script>
+    <script src="js/3d-scene.js"></script>
+</body>
+
+</html>
