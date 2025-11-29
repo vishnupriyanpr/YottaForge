@@ -360,7 +360,7 @@ ul {
     z-index: 10;
 }
 
-/* --- Services Section (Expanded via CSS/JS) --- */
+/* --- Services Section (Compact 4-Column) --- */
 .grid-section {
     background: var(--bg-color);
     padding: 8rem 0;
@@ -382,25 +382,23 @@ ul {
     margin-bottom: 1rem;
 }
 
-/* Target existing .services-grid but give it the "large" styling */
 .services-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 3rem;
 }
 
-/* Target existing .service-card but give it the "large" styling */
 .service-card {
     background: var(--glass-bg);
     border: 1px solid var(--border-color);
-    padding: 4rem;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 400px;
+    min-height: 450px;
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease;
@@ -412,14 +410,13 @@ ul {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Target existing .card-header (which contains the number) */
 .service-card .card-header {
     font-family: var(--font-display);
-    font-size: 5rem;
+    font-size: 3.5rem;
     font-weight: 900;
     color: var(--glass-border);
     line-height: 1;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     -webkit-text-stroke: 1px var(--border-color);
     transition: color 0.4s ease;
 }
@@ -431,19 +428,41 @@ ul {
 
 .service-card h4 {
     font-family: var(--font-display);
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
     color: var(--text-primary);
 }
 
 .service-card p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-secondary);
-    margin-bottom: 3rem;
-    max-width: 90%;
+    margin-bottom: 2rem;
+    max-width: 100%;
 }
 
-/* Dynamically added via JS */
+.service-list {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+.service-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.service-list li::before {
+    content: '→';
+    color: var(--accent-red);
+    font-weight: bold;
+    font-family: var(--font-display);
+
+}
+
 .learn-more {
     display: inline-flex;
     align-items: center;
@@ -463,24 +482,21 @@ ul {
     transform: translateY(0);
 }
 
-/* --- Process Section (Vertical Timeline via CSS/JS) --- */
+/* --- Process Section (Vertical Timeline) --- */
 .process-section {
     padding: 10rem 0;
     background: var(--bg-secondary);
     border-bottom: 1px solid var(--border-color);
 }
 
-/* Target existing .process-steps */
 .process-steps {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 3rem;
     position: relative;
     display: block;
-    /* Override potential grid from previous styles if any */
 }
 
-/* Vertical Line */
 .process-steps::before {
     content: '';
     position: absolute;
@@ -492,7 +508,6 @@ ul {
     transform: translateX(-50%);
 }
 
-/* Target existing .step-item */
 .step-item {
     display: flex;
     justify-content: space-between;
@@ -500,13 +515,11 @@ ul {
     margin-bottom: 8rem;
     position: relative;
     padding-top: 0;
-    /* Reset */
 }
 
 .step-item::before,
 .step-item::after {
     display: none;
-    /* Remove old hover effects */
 }
 
 .step-item:last-child {
@@ -517,7 +530,6 @@ ul {
     flex-direction: row-reverse;
 }
 
-/* Target existing .step-number */
 .step-number {
     font-family: var(--font-display);
     font-size: 8rem;
@@ -530,11 +542,9 @@ ul {
     z-index: 1;
     text-shadow: 0 0 30px rgba(255, 42, 42, 0.2);
     margin-bottom: 0;
-    /* Reset */
     line-height: 1;
 }
 
-/* Dynamically created wrapper via JS */
 .step-content {
     width: 45%;
     background: var(--glass-bg);
