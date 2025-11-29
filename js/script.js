@@ -65,3 +65,44 @@ if (contactForm) {
         }, 1500);
     });
 }
+
+// --- DOM Enhancements for Premium UI (Without touching HTML) ---
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Enhance Services Section
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        // Add "Learn More" button if it doesn't exist
+        if (!card.querySelector('.learn-more')) {
+            const learnMoreBtn = document.createElement('a');
+            learnMoreBtn.href = '#';
+            learnMoreBtn.className = 'learn-more';
+            learnMoreBtn.innerHTML = 'Learn More <span class="arrow">→</span>';
+            card.appendChild(learnMoreBtn);
+        }
+    });
+
+    // 2. Enhance Process Section (Vertical Timeline)
+    const processSteps = document.querySelector('.process-steps');
+    if (processSteps) {
+        // Ensure the container has the relative positioning needed for the line
+        processSteps.style.position = 'relative';
+
+        const steps = processSteps.querySelectorAll('.step-item');
+        steps.forEach(step => {
+            // Wrap content (h3, p) in a div for layout
+            const title = step.querySelector('h3');
+            const desc = step.querySelector('p');
+
+            // Check if already wrapped to avoid duplication
+            if (title && desc && title.parentElement === step) {
+                const contentWrapper = document.createElement('div');
+                contentWrapper.className = 'step-content';
+
+                // Move elements into wrapper
+                step.appendChild(contentWrapper);
+                contentWrapper.appendChild(title);
+                contentWrapper.appendChild(desc);
+            }
+        });
+    }
+});
