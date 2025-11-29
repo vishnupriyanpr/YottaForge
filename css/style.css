@@ -377,6 +377,95 @@ ul {
 .grid-header h3 {
     font-family: var(--font-display);
     font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+}
+
+/* Target existing .services-grid but give it the "large" styling */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+/* Target existing .service-card but give it the "large" styling */
+.service-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.service-card:hover {
+    border-color: var(--accent-red);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Target existing .card-header (which contains the number) */
+.service-card .card-header {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--glass-border);
+    line-height: 1;
+    margin-bottom: 2rem;
+    -webkit-text-stroke: 1px var(--border-color);
+    transition: color 0.4s ease;
+}
+
+.service-card:hover .card-header {
+    color: rgba(255, 42, 42, 0.1);
+    -webkit-text-stroke: 1px var(--accent-red);
+}
+
+.service-card h4 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.service-card p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    max-width: 90%;
+}
+
+/* Dynamically added via JS */
+.learn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-red);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.service-card:hover .learn-more {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Process Section (Vertical Timeline via CSS/JS) --- */
+.process-section {
+    padding: 10rem 0;
     background: var(--bg-secondary);
     border-bottom: 1px solid var(--border-color);
 }
