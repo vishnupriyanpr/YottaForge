@@ -45,24 +45,64 @@ animatedElements.forEach(el => {
 // Contact Form Handling
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const btn = contactForm.querySelector('.submit-btn');
-        const originalText = btn.textContent;
+        const originalText = "SEND MESSAGE"; // Hardcoded to match new HTML
 
-        btn.textContent = 'TRANSMITTING...';
-        btn.style.background = '#00f0ff';
+        // Loading State
+        btn.classList.add('loading');
 
-        setTimeout(() => {
-            btn.textContent = 'SEQUENCE COMPLETE';
-            btn.style.background = '#00ff00';
-            contactForm.reset();
+        const formData = new FormData(contactForm);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            });
+
+            const result = await response.json();
+
+            if (response.status === 200) {
+                // Success
+                btn.classList.remove('loading');
+                btn.textContent = 'MESSAGE SENT';
+                btn.style.background = '#00ff00';
+                contactForm.reset();
+
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                }, 3000);
+            } else {
+                // Error from API
+                console.log(response);
+                btn.classList.remove('loading');
+                btn.textContent = 'ERROR';
+                btn.style.background = 'red';
+
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                }, 3000);
+            }
+        } catch (error) {
+            console.log(error);
+            btn.classList.remove('loading');
+            btn.textContent = 'ERROR';
+            btn.style.background = 'red';
 
             setTimeout(() => {
                 btn.textContent = originalText;
                 btn.style.background = '';
             }, 3000);
-        }, 1500);
+        }
     });
 }
 

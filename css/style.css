@@ -42,10 +42,11 @@ body {
 a {
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: all 0.3s easy;
 }
 
 ul {
+
     list-style: none;
 }
 
@@ -84,6 +85,15 @@ ul {
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto 4rem;
+}
+
+.section-header-center {
+    text-align: center;
+    margin-bottom: 5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .btn-arrow {
@@ -346,7 +356,7 @@ ul {
 
 .split-visual {
     position: relative;
-    background: radial-gradient(circle at center, #111 0%, #000 100%);
+    background: radial-gradient(circle at center, rgba(255, 42, 42, 0.15) 0%, #050505 70%);
     overflow: hidden;
     height: 100%;
 }
@@ -360,126 +370,154 @@ ul {
     z-index: 10;
 }
 
-/* --- Services Section (Compact 4-Column) --- */
-.grid-section {
-    background: var(--bg-color);
+/* --- Services Section (Horizontal Accordion) --- */
+.accordion-section {
     padding: 8rem 0;
-}
-
-.grid-header {
-    padding: 0 3rem 5rem;
+    background: var(--bg-color);
     border-bottom: 1px solid var(--border-color);
-    text-align: center;
-    max-width: 1200px;
-    margin: 0 auto 5rem;
 }
 
-.grid-header h3 {
-    font-family: var(--font-display);
-    font-size: 3rem;
-    font-weight: 800;
-    letter-spacing: -1px;
-    margin-bottom: 1rem;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+.accordion-container {
+    display: flex;
+    width: 100%;
+    height: 600px;
+    /* Fixed height for the accordion */
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 3rem;
+    gap: 1rem;
 }
 
-.service-card {
+.accordion-item {
+    flex: 1;
+    position: relative;
     background: var(--glass-bg);
     border: 1px solid var(--border-color);
-    padding: 2.5rem;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 450px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.4s ease;
+    padding: 2rem;
 }
 
-.service-card:hover {
+.accordion-item:hover {
+    flex: 3;
+    /* Expands on hover */
+    background: rgba(255, 255, 255, 0.05);
     border-color: var(--accent-red);
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
-.service-card .card-header {
+/* Number Styling - Preserved */
+.acc-number {
     font-family: var(--font-display);
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 900;
     color: var(--glass-border);
-    line-height: 1;
-    margin-bottom: 1.5rem;
     -webkit-text-stroke: 1px var(--border-color);
-    transition: color 0.4s ease;
+    line-height: 1;
+    transition: all 0.4s ease;
+    opacity: 0.7;
 }
 
-.service-card:hover .card-header {
+.accordion-item:hover .acc-number {
     color: rgba(255, 42, 42, 0.1);
     -webkit-text-stroke: 1px var(--accent-red);
+    opacity: 1;
+    transform: scale(1.1);
+    transform-origin: top left;
 }
 
-.service-card h4 {
+.acc-content {
+    margin-top: auto;
+    width: 100%;
+    /* Ensure content doesn't wrap weirdly when collapsed */
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.accordion-item h3 {
     font-family: var(--font-display);
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
-
-.service-card p {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-    max-width: 100%;
-}
-
-.service-list {
-    margin-top: 2rem;
-    border-top: 1px solid var(--border-color);
-    padding-top: 2rem;
-}
-
-.service-list li {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    color: var(--text-secondary);
-    font-size: 1rem;
-}
-
-.service-list li::before {
-    content: '→';
-    color: var(--accent-red);
-    font-weight: bold;
-    font-family: var(--font-display);
-
-}
-
-.learn-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    font-family: var(--font-display);
+    font-size: 2rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent-red);
-    opacity: 0;
-    transform: translateY(20px);
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    transform-origin: left bottom;
     transition: all 0.4s ease;
 }
 
-.service-card:hover .learn-more {
+/* When collapsed, maybe rotate the text? 
+   For now, let's keep it simple. If it's too narrow, it hides.
+   But we want it to look good even when collapsed.
+*/
+
+.acc-details {
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.5s ease;
+    white-space: normal;
+    /* Allow text to wrap in expanded view */
+}
+
+.accordion-item:hover .acc-details {
     opacity: 1;
-    transform: translateY(0);
+    max-height: 500px;
+    /* Arbitrary large number */
+    margin-top: 1rem;
+}
+
+.accordion-item:hover h3 {
+    color: var(--accent-red);
+    font-size: 2.5rem;
+}
+
+/* Service List inside Accordion */
+.accordion-item .service-list {
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.accordion-item .service-list li {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.accordion-item .service-list li::before {
+    content: '→';
+    color: var(--accent-red);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .accordion-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .accordion-item {
+        height: 120px;
+        /* Collapsed height */
+        flex: none;
+        width: 100%;
+    }
+
+    .accordion-item:hover {
+        flex: none;
+        height: auto;
+        /* Expand height */
+    }
+
+    .acc-details {
+        white-space: normal;
+    }
 }
 
 /* --- Process Section (Vertical Timeline) --- */
@@ -582,75 +620,6 @@ ul {
     color: var(--text-secondary);
     font-size: 1.05rem;
     line-height: 1.7;
-}
-
-/* Builds Gallery */
-.gallery-section {
-    padding: 8rem 0;
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.section-header-center {
-    text-align: center;
-    margin-bottom: 5rem;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 0 3rem;
-    max-width: 1600px;
-    margin: 0 auto;
-}
-
-.gallery-item {
-    aspect-ratio: 4/5;
-    background: #151515;
-    border: 1px solid var(--border-color);
-    position: relative;
-    overflow: hidden;
-    group: hover;
-    cursor: pointer;
-}
-
-/* Placeholder gradient for images */
-.gallery-item {
-    background: linear-gradient(45deg, #111, #222);
-}
-
-.gallery-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 2rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
-}
-
-.gallery-item:hover .gallery-content {
-    transform: translateY(0);
-}
-
-.gallery-item:hover {
-    border-color: var(--accent-red);
-    box-shadow: 0 0 30px rgba(255, 42, 42, 0.1);
-}
-
-.gallery-content h3 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
-}
-
-.gallery-content p {
-    color: var(--accent-red);
-    font-size: 0.9rem;
-    font-weight: 500;
 }
 
 /* Testimonials Section */
@@ -815,6 +784,34 @@ ul {
     background: #ff0000;
     box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
     transform: scale(1.02);
+}
+
+/* Button Loading State */
+.submit-btn.loading {
+    color: transparent;
+    pointer-events: none;
+    position: relative;
+}
+
+.submit-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    margin-left: -12px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Footer */
