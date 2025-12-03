@@ -42,6 +42,11 @@ animatedElements.forEach(el => {
     observer.observe(el);
 });
 
+// Process Steps (Custom Animation via CSS)
+document.querySelectorAll('.step-item').forEach(el => {
+    observer.observe(el);
+});
+
 // Contact Form Handling
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
